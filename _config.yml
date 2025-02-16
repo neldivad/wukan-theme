@@ -18,19 +18,6 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: David Len's Blog
-email: dl.eeee.nv@gmail.com
-description: >- # this means to ignore newlines until "baseurl:"
-  Articles, essays, insights, partnership offers.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: just_neldivad
-github_username:  neldivad
-
-# Build settings
-theme: jekyll-theme-minimal
-plugins:
-  - jekyll-feed
 
 # Exclude from processing.
 # The following items will not be processed, by default.
@@ -51,3 +38,452 @@ plugins:
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
+
+
+title: David Len's Blog
+email: dl.eeee.nv@gmail.com
+description: >- # this means to ignore newlines until "baseurl:"
+  Articles, essays, insights, partnership offers.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "" # the base hostname & protocol for your site, e.g. http://example.com
+twitter_username: just_neldivad
+github_username:  neldivad
+
+# Build settings
+theme: jekyll-theme-minimal
+plugins:
+  - jekyll-feed
+
+defaults: # https://jekyllrb.com/docs/configuration/front-matter-defaults/
+  - scope:
+      path: "" # an empty string here means all files in the project
+    values:
+      jekyll-theme-WuK:
+        comments: # https://giscus.app/
+          append: |
+            <div class="giscus">
+              Loading comments...
+            </div>
+            <script src="https://giscus.app/client.js"
+              data-repo="wu-kan/wu-kan.github.io"
+              data-repo-id="MDEwOlJlcG9zaXRvcnkxNzIxMzc1OTQ="
+              data-category="Announcements"
+              data-category-id="DIC_kwDOCkKces4Clz9j"
+              data-mapping="url"
+              data-strict="0"
+              data-reactions-enabled="1"
+              data-emit-metadata="0"
+              data-input-position="top"
+              data-theme="preferred_color_scheme"
+              data-lang="en"
+              crossorigin="anonymous"
+              async>
+            </script>
+        default:
+          html_lang: en # <https://www.w3school.com.cn/tags/html_ref_language_codes.asp>
+          color-mode: auto # <https://primer.style/css/storybook/?path=/docs/support-theming--docs>
+          light-theme: light
+          dark-theme: dark
+          menu:
+            nav: 
+              - title: 'Index'
+                href: /
+              - title: 'Comments'
+                href: /comments/
+              - title: 'Archive'
+                href: /archive/
+              - title: 'Tags'
+                href: /tags/
+              - title: 'Donate'
+                href: /donate/
+              - title: 'Resume'
+                href: https://resume.wu-kan.cn/
+              - title: 'GitHub'
+                href: https://github.com/wu-kan
+              - title: 'Bilibili'
+                href: https://space.bilibili.com/166390020
+              - title: 'jekyll-theme-WuK'
+                href: https://jekyll-theme-WuK.wu-kan.cn/
+            footer: | 
+              <div>
+                <span id="busuanzi_container_site_pv">
+                  <span id="busuanzi_value_site_pv"></span>
+                  visits
+                </span>
+                <span id="busuanzi_container_site_uv">
+                  <span id="busuanzi_value_site_uv"></span>
+                  vistors
+                </span>
+                <script
+                  src="https://cdn.jsdelivr.net/npm/busuanzi@2.3/bsz.pure.mini.js"
+                  async="async"
+                ></script>
+              </div>
+              <div>
+                (C) 2017-2025 wu-kan
+              </div>
+            jekyll-toc: # <https://github.com/allejo/jekyll-toc>
+              enable: true
+              prepend: |
+                <style>
+                  #wrap-toc {
+                    padding-left: 3em;
+                  }
+                </style>
+            prepend:
+              - |
+                <form class="SelectMenu-filter">
+                  <input
+                    class="SelectMenu-input form-control"
+                    type="text"
+                    placeholder="Search"
+                    aria-label="Filter"
+                    id="wrap-search-input"
+                  />
+                  <ol class="px-5" id="wrap-search-result"></ol>
+                  <script
+                    src="https://cdn.jsdelivr.net/npm/simple-jekyll-search@1.10.0/dest/simple-jekyll-search.min.js"
+                    async="async"
+                    onload='
+                  SimpleJekyllSearch({
+                    json: "/assets/simple-jekyll-search/search.json",
+                    searchInput: document.getElementById("wrap-search-input"),
+                    resultsContainer: document.getElementById("wrap-search-result"),
+                    searchResultTemplate: `<li><a href="{url}">{title}</a></li>`,
+                    limit: 9
+                  })'
+                  ></script>
+                </form>
+          append_to_head: #
+            - | # <https://css-loaders.com/>
+              <style>
+                .loader {
+                  width: calc(6*30px);
+                  height: 50px;
+                  display: flex;
+                  filter: drop-shadow(30px 25px 0 currentColor) drop-shadow(60px 0 0 currentColor) drop-shadow(120px 0 0 currentColor);
+                  clip-path: inset(0 100% 0 0);
+                  animation: l12 2s infinite steps(7);
+                }
+                .loader:before {
+                  content: "";
+                  width: 30px;
+                  height: 25px;
+                  --c:no-repeat radial-gradient(farthest-side,currentColor 92%,#0000);
+                  background:
+                    var(--c) left /70% 70%,
+                    var(--c) right/20% 20%,
+                    var(--c) top    0 right 15%/20% 20%,
+                    var(--c) bottom 0 right 15%/20% 20%;
+                }
+                @keyframes l12 {
+                  100% {clip-path: inset(0 -30px 0 0)}
+                }
+                #wrap-loader {
+                  width: 100vw;
+                  height: 100vh;
+                  position: fixed;
+                  top: 0;
+                  left: 0;
+                  z-index: 999;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                }
+                :root {
+                  --fgColor-default: Black;
+                  --bgColor-default: White;
+                }
+                @media (prefers-color-scheme: dark) {
+                  :root {
+                    --fgColor-default: White;
+                    --bgColor-default: Black;
+                  }
+                }
+                .loader {
+                  color: var(--fgColor-default);
+                }
+                #wrap-loader {
+                  background-color: var(--bgColor-default);
+                }
+              </style>
+              <script>
+                document.addEventListener("DOMContentLoaded", (event) => {
+                  let x = document.getElementById("wrap-loader");
+                  x.classList.add("fast", "anim-fade-out");
+                  setTimeout('document.getElementById("wrap-loader").remove()', 300);
+              });
+              </script>
+            - | # 
+              <meta
+                http-equiv="content-type"
+                content="text/html; charset=utf-8"
+              />
+              <meta
+                name="viewport"
+                content="width=device-width,minimum-scale=1,initial-scale=1"
+              />
+              <link
+                rel="alternate"
+                href="/feed.xml"
+                title="RSS"
+                type="application/rss+xml"
+              />
+            - |
+              <link
+                rel="stylesheet"
+                href="https://cdn.jsdelivr.net/npm/@primer/css@21.5.1/dist/primer.min.css"
+              />
+            - | # https://www.npmjs.com/package/pygments-rouge-css
+              <link
+                rel="stylesheet"
+                href="https://cdn.jsdelivr.net/npm/pygments-rouge-css@0.1.0/perldoc.min.css"
+              />
+            - | # font
+              <link
+                rel="stylesheet"
+                href="https://cdn.jsdelivr.net/npm/@fontsource/monaspace-xenon@5.1.0/index.min.css"
+              />
+              <link
+                rel='stylesheet'
+                href='https://chinese-fonts-cdn.deno.dev/packages/jyhpws/dist/%E6%9E%81%E5%BD%B1%E6%AF%81%E7%89%87%E6%96%87%E5%AE%8B/result.css'
+              />
+              <style>
+                body, .markdown-body {
+                  font-family: "Monaspace Xenon", "极影毁片文宋 Medium", var(--fontStack-monospace, monospace);
+                }
+              </style>
+            - | # fill page
+              <style>
+                #wrap-content {
+                  min-height: 100vh;
+                }
+              </style>
+        page:
+          title: # H1 title
+            enable: true
+          prepend:
+            - | # 
+              <style>
+                .markdown-body p {
+                  text-indent: 2em;
+                }
+                .markdown-body img {
+                  max-width: calc(100% - 4em);
+                }
+              </style>
+            - |
+              <style>
+              .markdown-body .highlight pre,
+              .markdown-body pre {
+                  padding: 0;
+                  background: none;
+                }
+              </style>
+          plugin:
+            - smart_include:
+                enable: true
+                key: $
+              append:
+                | # https://github.com/wu-kan/wu-kan.github.io/issues/13
+                <link
+                  rel="stylesheet"
+                  href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css"
+                />
+                <style>
+                  .katex-display>.katex {
+                    white-space: normal;
+                  }
+                </style>
+                <script
+                  src="https://cdn.jsdelivr.net/combine/npm/katex@0.16.21/dist/katex.min.js,npm/katex@0.16.21/dist/contrib/auto-render.min.js"
+                  async="async"
+                  onload='renderMathInElement(document.body, { delimiters: [{left: "$$", right: "$$", display: true}, { left: "$", right: "$", display: false }, {left: "\\(", right: "\\)", display: false}, {left: "\\[", right: "\\]", display: true}]})'
+                ></script>
+            - smart_include:
+                enable: true
+                key: language-vega-lite
+              append: |
+                <style>
+                  pre code.language-vega-lite {
+                    display: none;
+                  }
+                </style>
+                <script
+                  src="https://cdn.jsdelivr.net/combine/npm/vega@5.31.0,npm/vega-lite@5.23.0,npm/vega-embed@6.29.0"
+                  async="async"
+                  onload='
+                    for(let x of document.getElementsByClassName("language-vega-lite"))
+                      if(x.nodeName=="CODE")
+                      {
+                        let m = document.createElement("div");
+                        x.parentNode.insertAdjacentElement("beforebegin", m);
+                        vegaEmbed(m, JSON.parse(x.textContent));
+                      }'
+                ></script>
+            - smart_include:
+                enable: true
+                key: language-mermaid
+              append: |
+                <style>
+                  pre code.language-mermaid {
+                    display: none;
+                  }
+                </style>
+                <script
+                  src="https://cdn.jsdelivr.net/npm/mermaid@11.4.1/dist/mermaid.min.js"
+                  async="async"
+                  defer="defer"
+                  onload='
+                    for(let x of document.getElementsByClassName("language-mermaid"))
+                      if(x.nodeName=="CODE")
+                      {
+                        let m = document.createElement("div");
+                        m.classList.add("mermaid");
+                        m.textContent = x.textContent;
+                        x.parentNode.insertAdjacentElement("beforebegin", m);
+                      }'
+                ></script>
+            - smart_include:
+                enable: false
+              append: |
+                <link
+                  rel="stylesheet"
+                  href="https://cdn.jsdelivr.net/npm/sakana-widget@2.7.0/lib/sakana.min.css"
+                />
+                <script>
+                function initSakanaWidget() {
+                  const mizuno = SakanaWidget.getCharacter('takina');
+                  mizuno.image = `https://mizuno-ai.wu-kan.cn/pixiv/75805052_p0.webp`;
+                  SakanaWidget.registerCharacter('mizuno', mizuno);
+                  let sakana = document.createElement("div");
+                  sakana.style.bottom = "0";
+                  sakana.style.right = "0";
+                  sakana.style.zIndex = "1";
+                  sakana.style.position = "fixed";
+                  document.body.insertAdjacentElement("beforeend", sakana);
+                  new SakanaWidget({ character: 'mizuno' }).mount(sakana);
+                }
+                </script>
+                <script
+                  async
+                  onload="initSakanaWidget();"
+                  src="https://cdn.jsdelivr.net/npm/sakana-widget@2.7.0/lib/sakana.min.js"
+                ></script>
+        post:
+          date: # show post time
+            enable: true
+            prepend: post on
+          wordcount: # count word
+            enable: true
+            prepend: about
+            unit: words
+          readtime: # calculate read time
+            enable: true
+            prepend: require
+            unit: min
+            divided_by: 300 # word per min
+          copyright:
+            | #
+            <br/>
+            <a target="_blank"
+              href="https://creativecommons.org/licenses/by/4.0/deed.zh"
+              rel="license">
+              CC BY 4.0
+            </a>
+            （除特别声明或转载文章外）
+            <br/>
+            <a target="_blank" href="/donate/">如果这篇文章帮助到你，可以请我喝一杯咖啡~</a>
+          related_posts:
+            enable: true
+        home: # https://revealjs.com/
+          append_to_section_tag:
+            - key: data-markdown
+            - key: data-separator # horizontal
+              value: <!-- .slide -->
+            - key: data-separator-vertical # vertical
+              value: <!-- .slide vertical=true -->
+          prepend: |
+            <link
+              rel="stylesheet"
+              href="https://cdn.jsdelivr.net/combine/npm/reveal.js@5.1.0/dist/reveal.min.css,npm/reveal.js@5.1.0/dist/theme/serif.min.css"
+            />
+            <style>
+              .reveal {
+                --r-code-font: "Monaspace Xenon", "极影毁片文宋 Medium", var(--fontStack-monospace, monospace);
+                --r-main-font: var(--r-code-font);
+                --r-heading-font: var(--r-main-font);
+                --r-main-color: var(--fgColor-default, var(--color-fg-default));
+                --r-heading-color: var(--r-main-color);
+                --r-link-color: var(--fgColor-accent, var(--color-accent-fg));
+                --r-background-color: var(--bgColor-default, var(--color-canvas-default));
+              }
+              .reveal .slides {
+                text-align: left;
+              }
+            </style>
+          append: |
+            <script
+              src="https://cdn.jsdelivr.net/combine/npm/reveal.js@5.1.0/dist/reveal.min.js,npm/reveal.js@5.1.0/plugin/markdown/markdown.min.js,npm/reveal.js@5.1.0/plugin/math/math.min.js"
+              defer="defer"
+              onload="
+              let x = document.getElementById('wrap-content');
+              x.classList.add('reveal');
+              Reveal.initialize({
+                scrollActivationWidth: null,
+                height: '100%',
+                mouseWheel: true,
+                navigationMode: 'linear',
+                plugins: [ RevealMarkdown,RevealMath.KaTeX ]
+              });
+            "></script>
+
+compress_html: # <https://github.com/penibelst/jekyll-compress-html>
+  clippings: all
+  comments: [] # do not compress comments, else ppt screen from reveal.js will be affected
+  endings: all
+  ignore:
+    envs: all # set to '[]' to but something wrong with syntax_highlighter_opts line_numbers true
+  blanklines: false
+  profile: false
+  startings: []
+
+# githubpage上支持的插件见<https://pages.github.com/versions/>
+plugins: # <https://jekyllrb.com/docs/plugins/>
+  - jekyll-readme-index # from readme, make index
+  - jekyll-default-layout # 
+  - jekyll-seo-tag # 
+  - jekyll-sitemap # 
+  - jekyll-feed # 
+  - jekyll-redirect-from # 
+  - jekyll-remote-theme # https://github.com/benbalter/jekyll-remote-theme/
+
+remote_theme: https://github.com/wu-kan/jekyll-theme-WuK@5.3.0 #
+
+readme_index: # use README.md instead of index.md and index.html
+  with_frontmatter: true # use yaml header
+
+webmaster_verifications: # https://jekyll.github.io/jekyll-seo-tag/usage/
+  google: YIKi1rBnyUaS-DMYiluseI5kZzTwjCkTFmKkSkMZDJk
+
+permalink: pretty
+timezone: Asia/Singapore # solve githubpage time display problem, see <https://www.iana.org/time-zones>
+future: true # 
+
+# limit_posts: 999 # 限制博文数量
+# encoding: utf-8
+
+markdown: kramdown
+kramdown: # <https://kramdown.gettalong.org/options.html>
+  input: GFM # <http://jekyllcn.com/docs/configuration/#kramdown>
+  syntax_highlighter_opts: # <https://kramdown.gettalong.org/syntax_highlighter/rouge.html>
+    block:
+      disable: false
+      line_numbers: true
+    span:
+      disable: false
+
+# githubpage not editable parameters, see <https://help.github.com/en/github/working-with-github-pages/about-github-pages-and-jekyll>
+#lsi: false # generate index
+#safe: true # disable custom plugin
+#source: [your repo's top level direct
