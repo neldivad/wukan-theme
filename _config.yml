@@ -83,7 +83,7 @@ defaults: # https://jekyllrb.com/docs/configuration/front-matter-defaults/
             </script>
         default:
           html_lang: en # <https://www.w3school.com.cn/tags/html_ref_language_codes.asp>
-          color-mode: dark # <https://primer.style/css/storybook/?path=/docs/support-theming--docs>
+          color-mode: auto # <https://primer.style/css/storybook/?path=/docs/support-theming--docs>
           light-theme: light
           dark-theme: dark
           menu:
@@ -252,7 +252,7 @@ defaults: # https://jekyllrb.com/docs/configuration/front-matter-defaults/
                   min-height: 100vh;
                 }
               </style>
-
+              
         page:
           title: # H1 title
             enable: true
