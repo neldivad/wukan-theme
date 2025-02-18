@@ -1,7 +1,5 @@
 # NEL-vERSE
 
-## deprecated
-
 <!-- .slide -->
 - [essays](https://neldivad.github.io/blog/)
 - [music](https://neldivad.github.io/compositions/)
